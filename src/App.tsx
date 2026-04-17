@@ -1,13 +1,18 @@
+import { TodoHeader } from "./components/TodoHeader"
+
 function App() {
 
   return (
 
-    <>
+    <main className="bg-neutral-very-dark-blue h-dvh">
 
-      <div className="w-40 h-40 bg-neutral-very-dark-desaturated-blue"></div>
+      <div className="bg-[url('/images/bg-desktop-dark.jpg')] h-80 bg-cover bg-center">
 
-      <p className="text-9xl text-bright-blue">Teste de fonte</p>
-    </>
+      <TodoHeader></TodoHeader>
+
+      </div>
+
+    </main>
 
   )
 }
