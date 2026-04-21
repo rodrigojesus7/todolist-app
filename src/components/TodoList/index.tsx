@@ -1,3 +1,7 @@
+import { themeConfig } from "../../contexts/theme"
+import { ThemeContext } from "../../contexts/ThemeContext"
+import { useContext } from "react"
+
 const todos = [
     { id: 1, text: 'Todo 1' },
     { id: 2, text: 'Todo 2' },
@@ -6,27 +10,30 @@ const todos = [
 
 const TodoList = () => {
 
+    const { theme } = useContext(ThemeContext)
+
     return (
 
-        <div className="bg-neutral-very-dark-desaturated-blue rounded-md">
+        <div className={`${themeConfig[theme].todo.backgroundColor} rounded-md`}>
             <ul>
                 {todos.map((todo) => (
-                    <li className="p-6 border-b border-neutral-very-dark-grayish-blue" key={todo.id}>
+                    <li className={`p-6 border-b ${themeConfig[theme].todo.borderColor}`}
+                        key={todo.id}>
                         <div className="flex items-center gap-4">
-                            <button className="w-6 h-6 border rounded-full cursor-pointer border-neutral-dark-grayish-blue"></button>
+                            <button className={`w-6 h-6 border ${themeConfig[theme].todo.borderColor} rounded-full cursor-pointer `}></button>
 
-                            <p className="text-neutral-very-light-grayish-blue">{todo.text}</p>
+                            <p className={`${themeConfig[theme].todo.textColor}`}>{todo.text}</p>
                         </div>
                     </li>
                 ))}
 
             </ul>
 
-            <div className="flex justify-between p-4 text-neutral-very-light-grayish-blue">
+            <div className={`flex justify-between p-4 ${themeConfig[theme].layout.textColor}`}>
                 <p>{todos.length} items left</p>
 
                 <div className="flex gap-4">
-                    <button className="cursor-pointer">All</button>
+                    <button className="cursor-pointer text-bright-blue">All</button>
                     <button className="cursor-pointer">Active</button>
                     <button className="cursor-pointer">Completed</button>
                 </div>

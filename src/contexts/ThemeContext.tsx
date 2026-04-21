@@ -18,11 +18,10 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
     }
 
     return (
-        <ThemeContext.Provider value={{}}>
+        <ThemeContext.Provider value={{ theme, toggleTheme }}>
             {children}
 
         </ThemeContext.Provider>
-
     )
 }
 
