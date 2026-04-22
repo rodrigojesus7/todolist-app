@@ -8,27 +8,20 @@ import { ThemeContext } from "./contexts/ThemeContext"
 
 function App() {
 
-  const {theme} = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
 
   return (
 
-    <main className={`h-dvh ${themeConfig[theme].layout.backgroundColor}`}>
 
-      <div className={`${themeConfig[theme].layout.heroClass}`}>
+    <>
+      <TodoHeader></TodoHeader>
 
-        <div className="max-w-[43.75rem] m-auto p-8">
+      <TodoForm></TodoForm>
 
-          <TodoHeader></TodoHeader>
+      <TodoList></TodoList>
+    </>
 
-          <TodoForm></TodoForm>
 
-          <TodoList></TodoList>
-
-        </div>
-
-      </div>
-
-    </main>
 
   )
 }
