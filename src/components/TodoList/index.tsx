@@ -2,13 +2,14 @@ import { themeConfig } from "../../contexts/theme"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { useContext } from "react"
 
+import type { Todo } from "../../App"
 
 interface TodoListProps{
     todoList: Todo[]
 }
 
 
-const TodoList = ({todoList}) => {
+const TodoList = ({todoList}: TodoListProps) => {
 
     const { theme } = useContext(ThemeContext)
 

@@ -30,6 +30,8 @@ function App() {
       text: todoItem,
       completed: false
     }])
+
+    event.currentTarget.reset()
   }
 
   return (
