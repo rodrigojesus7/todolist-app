@@ -2,13 +2,13 @@ import { themeConfig } from "../../contexts/theme"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { useContext } from "react"
 
-const todos = [
-    { id: 1, text: 'Todo 1' },
-    { id: 2, text: 'Todo 2' },
-    { id: 3, text: 'Todo 3' }
-]
 
-const TodoList = () => {
+interface TodoListProps{
+    todoList: Todo[]
+}
+
+
+const TodoList = ({todoList}) => {
 
     const { theme } = useContext(ThemeContext)
 
@@ -17,7 +17,7 @@ const TodoList = () => {
         <>
             <div className={`${themeConfig[theme].todo.backgroundColor} rounded-md`}>
                 <ul>
-                    {todos.map((todo) => (
+                    {todoList.map((todo) => (
                         <li className={`p-6 border-b ${themeConfig[theme].todo.borderColor}`}
                             key={todo.id}>
                             <div className="flex items-center gap-4">
@@ -34,7 +34,7 @@ const TodoList = () => {
                 </ul>
 
                 <div className={`text-sm flex justify-between p-4 ${themeConfig[theme].layout.textColor}`}>
-                    <p>{todos.length} items left</p>
+                    <p>{todoList.length} items left</p>
 
                     <div className="hidden sm:flex gap-4">
                         <button className="cursor-pointer text-bright-blue">All</button>
