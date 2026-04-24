@@ -29,8 +29,10 @@ const TodoList = ({ todoList, toggleTodoCompleted }: TodoListProps) => {
                                 <span className="w-6 h-6 rounded-full hover:bg-[linear-gradient(to_right,hsl(192,100%,67%),hsl(280,87%,65%))] hover:p-[1px]">
                                     <button
                                         onClick={() => toggleTodoCompleted(todo.id)}
-                                        className={`w-full h-full border ${themeConfig[theme].todo.borderColor} rounded-full cursor-pointer ${themeConfig[theme].todo.backgroundColor} `}
+                                        className={`w-full h-full border ${themeConfig[theme].todo.borderColor} rounded-full cursor-pointer ${themeConfig[theme].todo.backgroundColor} ${todo.completed ? 'bg-[linear-gradient(to_right,hsl(192,100%,67%),hsl(280,87%,65%))]' : ''}`}
                                     >
+                                        {todo.completed && <img src={IconCheck} alt="" className="h-2 w-2 m-auto" />
+                                        }
                                     </button>
                                 </span>
 
