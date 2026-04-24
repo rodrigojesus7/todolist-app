@@ -9,10 +9,11 @@ import IconCheck from '/images/icon-check.svg'
 interface TodoListProps {
     todoList: Todo[],
     toggleTodoCompleted: (id: number) => void
+    setFilter: (filter: "all" | "active" | "completed") => void
 }
 
 
-const TodoList = ({ todoList, toggleTodoCompleted }: TodoListProps) => {
+const TodoList = ({ todoList, toggleTodoCompleted, setFilter }: TodoListProps) => {
 
     const { theme } = useContext(ThemeContext)
 
@@ -50,9 +51,9 @@ const TodoList = ({ todoList, toggleTodoCompleted }: TodoListProps) => {
                         <p>{todoList.length} items total</p>
 
                         <div className="hidden sm:flex gap-4">
-                            <button className="cursor-pointer text-bright-blue">All</button>
-                            <button className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}>Active</button>
-                            <button className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}>Completed</button>
+                            <button onClick={() => setFilter("all")} className="cursor-pointer text-bright-blue">All</button>
+                            <button onClick={() => setFilter("active")} className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}>Active</button>
+                            <button onClick={() => setFilter("completed")} className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}>Completed</button>
                         </div>
 
                         <button className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}>Clear Selected</button>
@@ -65,9 +66,9 @@ const TodoList = ({ todoList, toggleTodoCompleted }: TodoListProps) => {
             {todoList.length > 0 && (
 
                 <div className={`${themeConfig[theme].todo.backgroundColor} ${themeConfig[theme].layout.textColor} flex justify-center gap-5 py-4 rounded-md mt-4 sm:hidden`}>
-                    <button className="cursor-pointer text-bright-blue">All</button>
-                    <button className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}>Active</button>
-                    <button className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}>Completed</button>
+                    <button onClick={() => setFilter("all")} className="cursor-pointer text-bright-blue">All</button>
+                    <button onClick={() => setFilter("active")} className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}>Active</button>
+                    <button onClick={() => setFilter("completed")} className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}>Completed</button>
                 </div>
 
             )}
