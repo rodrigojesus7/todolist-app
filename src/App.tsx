@@ -34,6 +34,24 @@ function App() {
     event.currentTarget.reset()
   }
 
+  const toggleTodoCompleted = (id: number) => {
+    const newTodoList = todoList.map(todo => {
+      if (id === todo.id) {
+
+        const completed = !todo.completed
+
+        return {
+          ...todo,
+          completed,
+        }
+      }
+
+      return todo
+    })
+
+    setTodoList(newTodoList)
+  }
+
   return (
 
     <TodoContainer>
@@ -42,7 +60,7 @@ function App() {
 
       <TodoForm addTodo={addTodo}></TodoForm>
 
-      <TodoList todoList={todoList}></TodoList>
+      <TodoList todoList={todoList} toggleTodoCompleted={toggleTodoCompleted}></TodoList>
 
     </TodoContainer>
 
