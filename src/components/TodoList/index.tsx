@@ -2,7 +2,7 @@ import { themeConfig } from "../../contexts/theme"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { useContext } from "react"
 
-import type { Todo } from "../../App"
+import type { Todo } from "../../hooks/useTodo"
 
 import IconCheck from '/images/icon-check.svg'
 
